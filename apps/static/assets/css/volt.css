@@ -2556,6 +2556,12 @@ progress {
   --bs-table-accent-bg: var(--bs-table-hover-bg);
   color: var(--bs-table-hover-color); }
 
+  .scrollme {
+    overflow-x: auto;
+}
+
+
+
 .table-primary {
   --bs-table-bg: #d2d4d7;
   --bs-table-striped-bg: #c9cbcf;
@@ -3434,6 +3440,10 @@ textarea.form-control-lg {
     background-color: #f0bc74;
     border-color: #f0bc74; }
 
+
+.btn-text-center { text-align: center; }
+
+    
 .btn-tertiary {
   color: #ffffff;
   background-color: #31316A;
@@ -9226,6 +9236,14 @@ textarea.form-control-lg {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important; }
 
+.bg-green {
+  --bs-bg-opacity: 1;
+  background-color: #146c43 !important; }
+
+.bg-otaGreen {
+  --bs-bg-opacity: 1;
+  background-color: #1db954 !important; }
+
 .bg-body {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-body-bg-rgb), var(--bs-bg-opacity)) !important; }
@@ -14398,7 +14416,9 @@ textarea.form-control-lg {
   font-weight: 500;
   text-transform: uppercase; }
   .navbar-brand img {
-    height: 40px; }
+    height: 80px;
+    width: 80px;
+  }
 
 .navbar-dark .navbar-brand-light {
   display: none; }
@@ -14560,6 +14580,9 @@ textarea.form-control-lg {
 .navbar-theme-primary:not(.headroom) {
   background-color: #1F2937; }
 
+.navbar-theme-green{
+  background-color: #146c43;
+}
 /**
  * = Sections
  */
@@ -14697,7 +14720,7 @@ textarea.form-control-lg {
       text-decoration: none;
       position: relative;
       display: block;
-      color: #374151; }
+     }
       .footer ul li a:hover {
         color: #1F2937; }
     .footer ul li .btn {
@@ -14795,13 +14818,13 @@ textarea.form-control-lg {
     margin-bottom: .2rem; }
     .sidebar .nav-item.active > .nav-link {
       color: #F2F4F6;
-      background-color: #374151; }
+      background-color: #146c43; }
     .sidebar .nav-item .nav-link {
       color: #ffffff;
       cursor: pointer; }
       .sidebar .nav-item .nav-link:hover {
         color: #F2F4F6;
-        background-color: #374151; }
+        background-color: #146c43; }
   .sidebar .nav-link + .multi-level {
     margin-top: .2rem; }
   .sidebar .nav-link {
@@ -14811,7 +14834,7 @@ textarea.form-control-lg {
     border-radius: 0.5rem; }
     .sidebar .nav-link .sidebar-icon {
       margin-right: .5rem;
-      color: #9CA3AF; }
+      color: #90ee90; }
     .sidebar .nav-link .link-arrow {
       font-size: 0.875rem; }
     .sidebar .nav-link[data-bs-toggle=collapse][aria-expanded=true] .link-arrow {
@@ -16877,6 +16900,21 @@ label {
     height: 800px;
     opacity: 0.2; }
 
+
+#messageBoard img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+
+
+
+
+.icon-shape-green {
+  background-color: #146c43;
+}
+    
 .icon-shape-primary {
   color: #1F2937;
   background-color: rgba(31, 41, 55, 0.3); }
@@ -18246,6 +18284,8 @@ label {
   font-weight: 500;
   padding: 1rem; }
 
+
+
 .table td .progress {
   height: 3px;
   width: 120px;
@@ -18296,7 +18336,6 @@ label {
 
 .card .table {
   margin-bottom: 0; }
-  .card .table td,
   .card .table th {
     padding-left: 1.5rem;
     padding-right: 1.5rem; }

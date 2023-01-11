@@ -1,4 +1,4 @@
-{% extends "layouts/base-fullscreen.html" %}
+<!--{% extends "layouts/base-fullscreen.html" %}-->
 
 {% block title %} Sign IN {% endblock %} 
 
@@ -10,22 +10,22 @@
     <main>
         <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
             <div class="container">
-                <p class="text-center">
-                    Open-source Flask Dashboard
-                </p>
-                <div class="row justify-content-center form-bg-image" data-background-lg="{{ config.ASSETS_ROOT }}/img/illustrations/signin.svg">
+                <a class="navbar-brand me-lg-5" href="/">
+                    <img class="navbar-brand-dark" src="{{ config.ASSETS_ROOT }}/img/favicon/OTALogo3.png" width="80" height="120" alt="OTA Logo" />
+                </a>
+                <div class="row justify-content-center form-bg-image bg-green rounded" data-background-lg="{{ config.ASSETS_ROOT }}/img/illustrations/signin.svg">
                     <div class="col-12 d-flex align-items-center justify-content-center">
                         <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                             <div class="text-center text-md-center mb-4 mt-md-0">
                                 <h1 class="mb-0 h3">
-                                    Flask Volt - Sign IN
+                                    OTA Sign In
                                 </h1>
                                 <br />
                                 <p>
                                     {% if msg %}
                                         <span class="text-danger">{{ msg | safe }}</span>
                                     {% else %}
-                                        Add your credentials
+                                        
                                     {% endif %}                                     
                                 </p> 
                             </div>
@@ -63,13 +63,14 @@
                                               Remember me
                                             </label>
                                         </div>
+                                        <!--
                                         <div>
                                             <a href="{{ url_for('authentication_blueprint.register') }}" class="fw-bold text-right">Register</a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="d-grid">
-                                    <button type="submit" name="login" class="btn btn-gray-800">Sign IN</button>
+                                    <button type="submit" name="login" class="btn bg-green text-white">Sign In</button>
                                 </div>
                             </form>
                             <br />
