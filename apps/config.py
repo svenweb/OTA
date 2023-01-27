@@ -4,7 +4,6 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 import os, random, string
-from flask_mail import Mail, Message
 
 class Config(object):
     MAIL_SERVER = 'smtp.sendgrid.net'

@@ -10,7 +10,7 @@ from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from importlib import import_module
-from flask_mail import Mail, Message
+
 
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -50,7 +50,7 @@ def configure_database(app):
 
 from apps.authentication.oauth import github_blueprint
 
-mail=Mail()
+
 def create_app(config):
     app = Flask(__name__)
     app.app_context().push()
@@ -63,6 +63,5 @@ def create_app(config):
     
     configure_database(app)
 
-    mail.init_app(app)          # load related mail config???
     
     return app

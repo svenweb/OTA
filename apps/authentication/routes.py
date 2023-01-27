@@ -9,7 +9,6 @@ from flask_login import (
     login_user,
     logout_user
 )
-import sendgrid
 from flask_dance.contrib.github import github
 from apps import db, login_manager
 from apps.authentication import blueprint
@@ -17,7 +16,6 @@ from apps.authentication.forms import LoginForm, CreateAccountForm
 from apps.authentication.models import Users
 import os
 import json
-from flask_mail import Message
 from flask import current_app
 from email.message import EmailMessage
 import ssl
@@ -81,16 +79,12 @@ def informationPage():
         
 
         # Open the JSON file in read mode
-        with open('/Users/woodPecker/Desktop/software/OTA.v.0.3/OTA web app/apps/authentication/emails.json', 'r') as file:
-            data = json.load(file)
 
-        # Add the new name and email to the data
-        data['name'] = name
-        data['email'] = email
 
         # Open the JSON file in write mode
-        with open('/Users/woodPecker/Desktop/software/OTA.v.0.3/OTA web app/apps/authentication/emails.json', 'w') as file:
-            json.dump(data, file)
+        print('WRTING')
+        with open('apps/authentication/emails.txt', 'a') as file:
+            file.write(f"'{name}':'{email}',"+'\n')
 
 
     return render_template('accounts/informationPage.html')
