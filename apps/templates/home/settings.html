@@ -1,0 +1,183 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Settings {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+        
+        <div class="d-block mb-4 mb-md-0">
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+                <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                    <li class="breadcrumb-item">
+                        <a href="#">
+                            <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        </a>
+                    </li>
+                </ol>
+            </nav>
+            <h2 class="h4">Settings</h2>
+  
+        </div>
+    
+        
+    <div class="row">
+        <div class="col-12 col-xl-8">
+            <div class="card card-body border-0 shadow mb-4">
+                <h2 class="h5 mb-4">Business & Personal Info</h2>
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div>
+                                <label for="first_name">First Name</label>
+                                <input class="form-control" id="first_name" type="text" placeholder="Enter your first name" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <div>
+                                <label for="last_name">Last Name</label>
+                                <input class="form-control" id="last_name" type="text" placeholder="Also your last name" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <div>
+                            <label for="last_name">Company Name</label>
+                            <input class="form-control" id="company_name" type="text" placeholder="Enter the name of your company" required>
+                        </div>
+                    </div>
+                
+                
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input class="form-control" id="email" type="email" placeholder="name@company.com" value="{{ current_user.email }}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input class="form-control" id="phone" type="number" placeholder="+12-345 678 910" required>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="h5 my-4">Company Location</h2>
+                    <div class="row">
+                        <div class="col-sm-9 mb-3">
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input class="form-control" id="address" type="text" placeholder="Enter your company address" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mb-3">
+                            <div class="form-group">
+                                <label for="number">Number</label>
+                                <input class="form-control" id="number" type="number" placeholder="No." required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 mb-3">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input class="form-control" id="city" type="text" placeholder="City" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 mb-3">
+                            <label for="state">Province</label>
+                            <select class="form-select w-100 mb-0" id="province" name="province" aria-label="Province select example">    
+                            <option value="AB">Alberta</option>
+                            <option value="BC">British Columbia</option>
+                            <option value="MB">Manitoba</option>
+                            <option value="NB">New Brunswick</option>
+                            <option value="NL">Newfoundland and Labrador</option>
+                            <option value="NS">Nova Scotia</option>
+                            <option value="NT">Northwest Territories</option>
+                            <option value="NU">Nunavut</option>
+                            <option value="ON">Ontario</option>
+                            <option value="PE">Prince Edward Island</option>
+                            <option value="QC">Quebec</option>
+                            <option value="SK">Saskatchewan</option>
+                            <option value="YT">Yukon</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="zip">Postal Code</label>
+                                <input class="form-control" id="zip" type="tel" placeholder="Postal Code" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="col-12 col-xl">
+                        <div class="card card-body border-0 shadow mb-4">
+                            <h2 class="h5 mb-4">Marketplace Account Info</h2>
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <img height="30" width="80" src="{{ config.ASSETS_ROOT }}/img/brand/kijLogo.svg" alt="">
+                                        <div class="d-flex align-items-center">
+                                            <input class="form-control m-1" id="kijiji_email" type="text" placeholder="Email used for kijiji" required>
+                                            <svg class="icon icon-xxs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                                        </div>
+                                        <br>
+                                        <div class="d-flex align-items-center">
+                                            <input class="form-control m-1" id="kijiji_password" type="password" placeholder="Password used for kijiji" required>
+                                            <svg class="icon icon-xxs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg>
+                                        </div>
+                                    </div>
+            
+                                    <div class="col-md-6 mb-3">
+                                        <img src="{{ config.ASSETS_ROOT }}/img/brand/craigslistLogo.svg" alt="">
+                                        <div class="d-flex align-items-center">
+                                            <input class="form-control m-1" id="craigs_email" type="text" placeholder="Email used for craigslist" required>
+                                            <svg class="icon icon-xxs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                                        </div>
+                                        <br>
+                                        <div class="d-flex align-items-center">
+                                            <input class="form-control m-1" id="craigslist_password" type="password" placeholder="Password used for craigslist" required>
+                                            <svg class="icon icon-xxs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <img height="40" width="90" src="{{ config.ASSETS_ROOT }}/img/brand/FBLogo.svg" alt="">
+                                        <div class="d-flex align-items-center">
+                                            <input class="form-control m-1" id="facebook_email" type="text" placeholder="Email used for FB marketplace" required>
+                                            <svg class="icon icon-xxs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                                        </div>
+                                        <br>
+                                        <div class="d-flex align-items-center">
+                                            <input class="form-control m-1" id="facebook_password" type="password" placeholder="Password used for FB marketplace" required>
+                                            <svg class="icon icon-xxs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg>
+                                        </div>
+                                    </div>
+                                
+                                
+                                </div>
+                                
+                               
+
+
+                    <div class="mt-3">
+                        <button class="btn btn-gray-800 mt-2 animate-up-2 bg-green" type="submit">Save settings</button>
+                    </div>
+
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

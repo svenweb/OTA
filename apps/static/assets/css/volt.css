@@ -1385,6 +1385,7 @@ progress {
   flex: 0 0 auto;
   width: 100%; }
 
+  
 .offset-1 {
   margin-left: 8.33333%; }
 
@@ -5019,7 +5020,8 @@ textarea.form-control-lg {
   vertical-align: middle;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100%; }
+  background-size: 100%; 
+}
 
 .navbar-nav-scroll {
   max-height: var(--bs-scroll-height, 75vh);

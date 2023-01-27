@@ -4,12 +4,13 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 import os
+from flask import Flask, render_template, request, redirect, url_for, flash
 
 from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from importlib import import_module
-
+from flask_mail import Mail, Message
 
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -49,8 +50,11 @@ def configure_database(app):
 
 from apps.authentication.oauth import github_blueprint
 
+mail=Mail()
 def create_app(config):
     app = Flask(__name__)
+    app.app_context().push()
+
     app.config.from_object(config)
     register_extensions(app)
     register_blueprints(app)
@@ -58,4 +62,7 @@ def create_app(config):
     app.register_blueprint(github_blueprint, url_prefix="/login") 
     
     configure_database(app)
+
+    mail.init_app(app)          # load related mail config???
+    
     return app

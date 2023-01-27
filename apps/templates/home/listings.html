@@ -23,7 +23,9 @@
           </nav>
           <h2 class="h4">Active Listings</h2>
           <p class="mb-0">Your Listings Manager</p>
+
       </div>
+
       <div class="btn-toolbar mb-2 mb-md-0">
           <a href="/postad.html" class="btn btn-sm bg-green d-inline-flex align-items-center text-white">
               <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
@@ -32,6 +34,28 @@
       </div>
   </div>
   
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete Listing?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="deleteModalText">
+          Are you sure you want to delete the listing?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="deleteModalBtn" class="btn btn-primary">Delete Listing</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
   <div class="table-settings mb-4">
       <div class="row align-items-center justify-content-between">
           <div class="col col-md-6 col-lg-3 col-xl-4">
@@ -61,6 +85,10 @@
       </div>
   </div>
 
+
+
+
+
   <div class="card card-body border-0 shadow table-wrapper table-responsive">
       <table class="table table-hover">
           <thead>
@@ -68,42 +96,38 @@
                   <th class="border-gray-200">Image</th>
                   <th class="border-gray-200">Ad title</th>						
                   <th class="border-gray-200">Date Posted</th>
-                  <th class="border-gray-200">Status</th>
                   <th class="border-gray-200">Price</th>
+                  <th class="border-gray-200">ID</th>
               </tr>
           </thead>
-          <tbody>
-              <!-- Item -->
-              <tr>
-                  <td>
-                        <img class="rounded img-fluid w-100" src="https://files.bikeindex.org/uploads/Pu/427952/DF330463-8F14-483D-AC0C-C59EFF8B8770.jpeg" alt="">
-                  </td>
-                  <td>
-                      <span class="fw-normal">Norco MTB</span>
-                  </td>
-                  <td><span class="fw-normal">2 Jan 2023</span></td>                        
-                  <td><span class="fw-normal">Active 3/4</span></td>
-                  <td><span class="fw-bold">$2250</span></td>
-                  <td>
-                      <div class="btn-group">
-                          <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <span class="icon icon-sm">
-                                  <span class="fas fa-ellipsis-h icon-dark"></span>
-                              </span>
-                              <span class="visually-hidden">Toggle Dropdown</span>
-                          </button>
-                          <div class="dropdown-menu py-0">
-                              <a class="dropdown-item rounded-top" href="#"><span class="fas fa-eye me-2"></span>View Details</a>
-                              <a class="dropdown-item" href="#"><span class="fas fa-edit me-2"></span>Edit</a>
-                              <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fas fa-trash-alt me-2"></span>Remove</a>
-                          </div>
-                      </div>
-                  </td>
-              </tr>
-              <!-- Item -->
-                                    
-          </tbody>
+          {% for post in posts %}
+                
+          <tr>
+    
+              <td>
+                  <img class="rounded img-fluid w-100" src="{{ config.ASSETS_ROOT }}/{{ images[post.id] }}" alt="">
+              </td>
+       
+              <td class="postTitle">
+                  <span class="fw-normal" >{{ post.title }}</span>
+              </td>
+              <td>
+                  <span class="fw-normal">{{ post.date_posted.strftime('%d, %b %Y') }}</span>
+              </td>
+              <td>
+                  <span class="fw-bold">${{ post.price }}</span>
+              </td>
+              <td class="postID">
+                <span class="fw-bold">{{ post.id }}</span>
+            </td>
+              <td>
+                <button class="" title="Delete" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="deleteListing($(this))"><i class="material-icons"> <svg class="icon icon-xs me-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"> <path fill-rule="evenodd" d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" clip-rule="evenodd"/></svg></i></button>
+              </td>
+          </tr>
+          {% endfor %}
       </table>
+   
+  </div>
       </div>
       <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
           <nav aria-label="Page navigation example">
@@ -136,5 +160,8 @@
 
 {% endblock content %}
 
+{% block javascripts %}
 <!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/listings.js"></script>
+{% endblock javascripts %}
