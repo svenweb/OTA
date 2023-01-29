@@ -6,12 +6,7 @@ Copyright (c) 2019 - present AppSeed.us
 import os, random, string
 
 class Config(object):
-    MAIL_SERVER = 'smtp.sendgrid.net'
-    MAIL_PORT = 587
-    MAIL_USE_TLS = True
-    MAIL_USERNAME = 'apikey'
-    MAIL_PASSWORD = os.environ.get('SENDGRID_API_KEY')
-    MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER')
+
     basedir = os.path.abspath(os.path.dirname(__file__))
 
     # Assets Management

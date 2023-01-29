@@ -43,6 +43,7 @@ a:hover {
 
 .container-fluid {
   max-width: 1310px;
+  align-items: center;
 }
 
 .small,
@@ -72,9 +73,11 @@ small {
 }
 
 .tm-brand-row {
-  align-items: center;
+  text-align: center;
   padding-top: 40px;
   padding-bottom: 28px;
+  display: flex;
+  justify-content: center;
 }
 
 .tm-brand-container {
@@ -861,6 +864,7 @@ p {
   width: 170px;
   left: 15px;
   background-size: contain;
+  align-self: center;
 }
 
 
