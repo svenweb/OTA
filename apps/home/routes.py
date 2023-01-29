@@ -1,8 +1,4 @@
-# -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2023 - On Top Ads Inc.
-"""
-#elan 
+
 from apps import db, login_manager
 
 from apps.home import blueprint

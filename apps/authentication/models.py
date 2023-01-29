@@ -1,7 +1,4 @@
-# -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
+
 from flask_sqlalchemy import SQLAlchemy
 
 from flask_login import UserMixin
