@@ -104,7 +104,7 @@ def postad():
 
 
 @blueprint.route('/listings.html')
-#@login_required
+@login_required
 def listings():
     user_posts = Post.query.filter_by(user_id=current_user.id).all()
     postToImage = {}
