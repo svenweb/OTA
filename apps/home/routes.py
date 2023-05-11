@@ -142,7 +142,7 @@ def delete_post(post_id):
 
 
 @blueprint.route('/<template>')
-@login_required
+#@login_required
 def route_template(template):
 
     today = date.today()
