@@ -22,7 +22,7 @@ def allowed_file(filename):
 
 
 @blueprint.route('/index')
-#s@login_required
+@login_required
 def index():
     today = date.today()
     formattedDate = today.strftime("%B %d, %Y")
@@ -31,7 +31,7 @@ def index():
 
 
 @blueprint.route('/dashboard.html')
-#@login_required
+@login_required
 def dashboard():
     
     today = date.today()
@@ -41,7 +41,7 @@ def dashboard():
 
 
 @blueprint.route('/insights.html')
-#@login_required
+@login_required
 def insights():
     
     today = date.today()
@@ -53,7 +53,7 @@ def insights():
 
 
 @blueprint.route('/postad.html', methods=['GET', 'POST'])
-#@login_required
+@login_required
 def postad():
     if request.method == 'POST':
         title = request.form['ad_title']
@@ -104,7 +104,7 @@ def postad():
 
 
 @blueprint.route('/listings.html')
-#@login_required
+@login_required
 def listings():
     user_posts = Post.query.filter_by(user_id=current_user.id).all()
     postToImage = {}
@@ -142,7 +142,7 @@ def delete_post(post_id):
 
 
 @blueprint.route('/<template>')
-#@login_required
+@login_required
 def route_template(template):
 
     today = date.today()
